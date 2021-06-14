@@ -1,4 +1,4 @@
-#include <iostream>
+//#include <iostream>
 #include <SFML/Graphics.hpp>
 #include "regionNodes.h"
 
@@ -62,7 +62,7 @@ void printQuadTree(sf::RenderWindow &win, cm::quadTree &t) {
     printQuadNode(win, t.root);
 }
 
-//#define MODE1D
+#define MODE1D
 int main() {
     const uint16_t S = 900;
 #ifdef MODE1D
@@ -87,7 +87,7 @@ int main() {
                 }
                 case sf::Event::MouseButtonPressed : {
 #ifdef MODE1D
-                    t.add(mpos_[0]);
+                    t.add({mpos_[0]});
 #else
                     t.add(mpos_);
 #endif
