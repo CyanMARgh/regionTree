@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cyanmargh/CLionProjects/regionTree/main.cpp
+iostream
+-
+SFML/Graphics.hpp
+-
+regionNodes.h
+/home/cyanmargh/CLionProjects/regionTree/regionNodes.h
+
+/home/cyanmargh/CLionProjects/regionTree/regionNodes.h
+tsvec.h
+/home/cyanmargh/CLionProjects/regionTree/tsvec.h
+
+/home/cyanmargh/CLionProjects/regionTree/tsvec.h
+cstdint
+-
+cstdlib
+-
+cmath
+-
+

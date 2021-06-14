@@ -1,0 +1,3 @@
+/home/cyanmargh/CLionProjects/regionTree/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/cyanmargh/CLionProjects/regionTree/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/cyanmargh/CLionProjects/regionTree/cmake-build-debug/CMakeFiles/regionTree.dir
