@@ -82,26 +82,15 @@ namespace cm {
             }
             return m;
         }
-        friend vec abs(const vec &v) {
+        friend vec<D> abs(const vec<D> &v) {
             vec t;
             for (uint8_t d = 0; d < D; d++) {
-                t.vals[d] = abs(v.vals[d]);
+                t.vals[d] = fabs(v.vals[d]);
             }
             return t;
         }
-        friend float length(const vec &v) {
+        friend float length(const vec<D> &v) {
             return sqrt(length2(v));
-        }
-        friend vec max(const vec &a, float b) {
-            vec ab;
-            for (uint8_t d = 0; d < D; d++) {
-                ab.vals[d] = std::fmax(a.vals[d], b);
-            }
-            return ab;
-        }
-        friend float dist(float b, vec p0, vec p) {
-            p = abs(p - p0) - svec<D>(b);
-            return length(max(p, 0)) + std::fmin(p.maxon(), 0.f);
         }
         float &operator[](uint8_t i) {
             return vals[i];
@@ -112,11 +101,24 @@ namespace cm {
     };
 
     template<uint8_t D>
+    vec<D> max(const vec<D> &a, float b) {
+        vec<D> ab;
+        for (uint8_t d = 0; d < D; d++) {
+            ab.vals[d] = std::fmax(a.vals[d], b);
+        }
+        return ab;
+    }
+    template<uint8_t D>
     vec<D> svec(float v) {
         vec<D> v_;
-        for (float &val : v_.vals) {
-            val = v;
+        for (uint8_t d = 0; d < D; d++) {
+            v_[d] = v;
         }
         return v_;
+    }
+    template<uint8_t D>
+    float dist(float b, vec<D> p0, vec<D> p) {
+        p = abs(p - p0) - svec<D>(b);
+        return length(max<D>(p, 0)) + std::min(p.maxon(), 0.f);
     }
 }
