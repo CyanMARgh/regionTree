@@ -11,6 +11,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.19.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.19.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.19.2/CMakeSystem.cmake"
+  "/home/cyanmargh/Загрузки/SFML-compiled/SFMLConfig.cmake"
+  "/home/cyanmargh/Загрузки/SFML-compiled/SFMLConfigDependencies.cmake"
+  "/home/cyanmargh/Загрузки/SFML-compiled/SFMLConfigVersion.cmake"
+  "/home/cyanmargh/Загрузки/SFML-compiled/SFMLStaticTargets.cmake"
   "/snap/clion/152/bin/cmake/linux/share/cmake-3.19/Modules/CMakeCInformation.cmake"
   "/snap/clion/152/bin/cmake/linux/share/cmake-3.19/Modules/CMakeCXXInformation.cmake"
   "/snap/clion/152/bin/cmake/linux/share/cmake-3.19/Modules/CMakeCommonLanguageInclude.cmake"
@@ -31,11 +35,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/snap/clion/152/bin/cmake/linux/share/cmake-3.19/Modules/Platform/Linux.cmake"
   "/snap/clion/152/bin/cmake/linux/share/cmake-3.19/Modules/Platform/UnixPaths.cmake"
   "/snap/clion/152/bin/cmake/linux/share/cmake-3.19/Modules/ProcessorCount.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfig.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigDependencies.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigVersion.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets-none.cmake"
-  "/usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets.cmake"
   )
 
 # The corresponding makefile is:

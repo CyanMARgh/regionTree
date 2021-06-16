@@ -1,4 +1,5 @@
 #include "tsvec.h"
+#include <SFML/Graphics.hpp>
 
 namespace cm {
     struct biNodeRefDist {
@@ -9,16 +10,17 @@ namespace cm {
         float d0 = ((biNodeRefDist *) nd0)->d, d1 = ((biNodeRefDist *) nd1)->d;
         return d0 < d1 ? -1 : d0 > d1 ? 1 : 0;
     }
-    template<uint8_t DIM>
+    template<uint8_t DIM, uint8_t EM, class T>
     struct regionNode {
-        const uint8_t EM = 3;
         uint8_t E = 0;
         regionNode *child[1 << DIM];
         vec<DIM> p0, *v = NULL;
+        T *vt = NULL;
         float b;
 
         regionNode(const vec<DIM> &p0_, float b_) : p0(p0_), b(b_) {
-            v = new vec<DIM>[EM]();
+            v = new vec<DIM>[EM];
+            vt = new T[EM];
             for (uint8_t i = 0; i < (1 << DIM); i++) {
                 child[i] = NULL;
             }
@@ -28,6 +30,7 @@ namespace cm {
                 delete child[i];
             }
             delete[] v;
+            delete[] vt;
         }
 
         uint32_t size() const {
@@ -75,32 +78,38 @@ namespace cm {
         }
         void split() {
             for (uint8_t e = 0; e < E; e++) {
-                add_(v[e]);
+                add_(v[e], vt[e]);
             }
             delete[] v;
+            delete[] vt;
             v = NULL;
+            vt = NULL;
         }
-        void add_(const vec<DIM> &p) {
+        void add_(const vec<DIM> &p, const T& vt_) {
             uint8_t ci = pointToId(p);
             if (!child[ci]) child[ci] = new regionNode(p0 + idToDelta(ci) * b / 2, b / 2);
-            child[ci]->add(p);
+            child[ci]->add(p, vt_);
         }
-        void add(const vec<DIM> &p) {
+        void add(const vec<DIM> &p, const T& vt_) {
             if (hasSame(p)) return;
             uint8_t s = getState();
             if (s == 1) {
+                vt[E] = vt_;
                 v[E++] = p;
             } else {
                 if (s == 2) split();
-                add_(p);
+                add_(p, vt_);
             }
         }
-
-        friend void closest(float &r, regionNode *n, vec<DIM> p) {
+        friend void closest(float &r, T& t, regionNode<DIM, EM, T> *n, vec<DIM> p) {
             if (n) {
                 if (n->v) {
                     for (uint8_t e = 0; e < n->E; e++) {
-                        r = std::min(r, length(p - (n->v)[e]));
+                        float r_ = length(p - (n->v)[e]);
+                        if (r_ < r) {
+                            r = r_;
+                            t = n->vt[e];
+                        }
                     }
                     return;
                 }
@@ -111,34 +120,34 @@ namespace cm {
                 }
                 std::qsort(prefs, 1 << DIM, sizeof(biNodeRefDist), cmpNodes);
                 for (uint8_t i = 0; i < 1 << DIM; i++) {
-                    if (r > prefs[i].d) closest(r, (regionNode *) (prefs[i].n), p);
+                    if (r > prefs[i].d) closest(r, t, (regionNode<DIM, EM, T> *) (prefs[i].n), p);
                 }
                 delete[] prefs;
             }
         }
     };
 
-    template<uint8_t D>
+    template<uint8_t D, uint8_t EM, class T>
     struct regionTree {
-        regionNode<D> *root = NULL;
+        regionNode<D, EM, T> *root = NULL;
         regionTree() {
             if (D == 0 || D > 7) {
                 throw std::invalid_argument("incorrect dimension count\n");
             }
-            root = new regionNode<D>(svec<D>(.5), .5);
+            root = new regionNode<D, EM, T>(svec<D>(.5), .5);
         }
         ~regionTree() {
             delete root;
         }
-        void add(const vec<D> &p) {
+        void add(const vec<D> &p, const T& t) {
             for (uint8_t d = 0; d < D; d++) {
                 if (p[d] > 1 || p[d] < 0)return;
             }
-            root->add(p);
+            root->add(p, t);
         }
-        float distance(const vec<D> &p) const {
+        float distance(const vec<D> &p, T& t) const {
             float r = 1e20;
-            closest(r, root, p);
+            closest(r, t, root, p);
             return r;
         }
         uint32_t size() const {
@@ -148,7 +157,6 @@ namespace cm {
             return root->count();
         }
     };
-    typedef regionTree<1> biTree;
-    typedef regionTree<2> quadTree;
-    typedef regionTree<3> octTree;
+    typedef regionTree<1, 3, sf::Color> colorBiTree;
+    typedef regionTree<2, 3, sf::Color> quadTree;
 }

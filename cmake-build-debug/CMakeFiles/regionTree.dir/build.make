@@ -98,9 +98,19 @@ regionTree_EXTERNAL_OBJECTS =
 
 regionTree: CMakeFiles/regionTree.dir/main.cpp.o
 regionTree: CMakeFiles/regionTree.dir/build.make
-regionTree: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
-regionTree: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
-regionTree: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
+regionTree: /home/cyanmargh/Загрузки/SFML-compiled/lib/libsfml-graphics-s.a
+regionTree: /home/cyanmargh/Загрузки/SFML-compiled/lib/libsfml-window-s.a
+regionTree: /home/cyanmargh/Загрузки/SFML-compiled/lib/libsfml-system-s.a
+regionTree: /usr/lib/x86_64-linux-gnu/libX11.so
+regionTree: /usr/lib/x86_64-linux-gnu/libXrandr.so
+regionTree: /usr/lib/x86_64-linux-gnu/libXcursor.so
+regionTree: /usr/lib/x86_64-linux-gnu/libX11.so
+regionTree: /usr/lib/x86_64-linux-gnu/libXrandr.so
+regionTree: /usr/lib/x86_64-linux-gnu/libXcursor.so
+regionTree: /usr/lib/x86_64-linux-gnu/libGL.so
+regionTree: /usr/lib/x86_64-linux-gnu/libOpenGL.so
+regionTree: /usr/lib/x86_64-linux-gnu/libudev.so
+regionTree: /usr/lib/x86_64-linux-gnu/libfreetype.so
 regionTree: CMakeFiles/regionTree.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cyanmargh/CLionProjects/regionTree/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable regionTree"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/regionTree.dir/link.txt --verbose=$(VERBOSE)

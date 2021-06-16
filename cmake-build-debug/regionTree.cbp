@@ -5,7 +5,7 @@
 		<Option title="regionTree"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\Загрузки\;CMake Files\..\..\Загрузки\SFML-compiled\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/cyanmargh/CLionProjects/regionTree/cmake-build-debug"/>
@@ -44,6 +44,8 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DSFML_STATIC"/>
+					<Add directory="/home/cyanmargh/Загрузки/SFML-master/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
 					<Add directory="/usr/include/c++/9/backward"/>
@@ -66,6 +68,8 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DSFML_STATIC"/>
+					<Add directory="/home/cyanmargh/Загрузки/SFML-master/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
 					<Add directory="/usr/include/c++/9/backward"/>
@@ -94,20 +98,17 @@
 		<Unit filename="/home/cyanmargh/CLionProjects/regionTree/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/cyanmargh/CLionProjects/regionTree/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		<Unit filename="/home/cyanmargh/CLionProjects/regionTree/../../Загрузки/SFML-compiled/SFMLConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\Загрузки\SFML-compiled\"/>
 		</Unit>
-		<Unit filename="/home/cyanmargh/CLionProjects/regionTree/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigDependencies.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		<Unit filename="/home/cyanmargh/CLionProjects/regionTree/../../Загрузки/SFML-compiled/SFMLConfigDependencies.cmake">
+			<Option virtualFolder="CMake Files\..\..\Загрузки\SFML-compiled\"/>
 		</Unit>
-		<Unit filename="/home/cyanmargh/CLionProjects/regionTree/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		<Unit filename="/home/cyanmargh/CLionProjects/regionTree/../../Загрузки/SFML-compiled/SFMLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\Загрузки\SFML-compiled\"/>
 		</Unit>
-		<Unit filename="/home/cyanmargh/CLionProjects/regionTree/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets-none.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
-		</Unit>
-		<Unit filename="/home/cyanmargh/CLionProjects/regionTree/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		<Unit filename="/home/cyanmargh/CLionProjects/regionTree/../../Загрузки/SFML-compiled/SFMLStaticTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\Загрузки\SFML-compiled\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>
